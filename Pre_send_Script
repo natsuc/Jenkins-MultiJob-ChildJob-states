@@ -1,0 +1,30 @@
+import groovy.json.JsonSlurper;
+def emailContent = msg.getContent().getBodyPart(0).getContent()
+//logger.print("$emailContent")
+String newContent = """$emailContent
+"""
+def subBuilds = build.getSubBuilds()
+subBuilds.each{
+   // logger.print("${it.jobName}")
+    //logger.print("${it}, ${it.getResult()}")
+def color_str='''green'''
+String temp =""""""
+temp+="""${it.getResult()}"""
+//logger.print(${it.getResult()})
+    if(temp.toString() =="""FAILURE""")
+ {color_str='''red'''}
+newContent +=""" <li>SUBBUILD_NAME&nbsp;: &nbsp;<a href="${JENKINS_URL}${it.url}">${it.getJobName()}</a> &nbsp;&nbsp;&nbsp;BUILD_NUMBER&nbsp;: &nbsp;${it.getBuildNumber()}&nbsp <span style="color:$color_str;font-weight: bold;">${it.getResult()}</span></li>
+"""
+}
+//logger.print("$subBuilds")
+//logger.print("$newContent")
+ newContent +="""   </ul>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
+"""
+msg.setContent(newContent, "text/html; charset=utf-8");

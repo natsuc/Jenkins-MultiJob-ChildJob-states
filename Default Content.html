@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>${ENV, var="JOB_NAME"}-BUILD_NUMBER :${BUILD_NUMBER}</title>
+</head>
+
+
+<body leftmargin="8" marginwidth="0" topmargin="8" marginheight="4"
+      offset="0">
+<table width="95%" cellpadding="0" cellspacing="0"
+       style="font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif">
+    <tr>
+        <td><h2>
+            <br /><font color="#0000FF">BUILD_STATUS - ${BUILD_STATUS}</font>
+        </h2></td>
+    </tr>
+    <tr>
+        <td><br />
+            <b><font color="#0B610B">Info:</font></b>
+            <hr size="2" width="100%" align="center" /></td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>PROJECT_NAME&nbsp;：&nbsp;${PROJECT_NAME}&nbsp</li>
+                <li>BUILD_NUMBER&nbsp;：&nbsp;${BUILD_NUMBER}&nbsp</li>
+                <li>BUILD_ENV&nbsp;：&nbsp;${ENV}&nbsp</li>
+                <li>BUIL_CAUSE ：&nbsp;${CAUSE}</li>
+                <li>PROJECT_URL : &nbsp;${PROJECT_URL}</li>
+                <li>BUILD_YRL : <a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><br />
+            <b><font color="#0B610B">SUB_BUILDS STATUS:</font></b>
+            <hr size="2" width="100%" align="center" /></td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
